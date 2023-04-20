@@ -11,6 +11,9 @@ formEl.addEventListener('submit', event => {
   event.preventDefault;
 
   for (let i = 0; i < formAmount; i++) {
+    if (formAmount < 0 && formdDelay < 0 && formsStep < 0) {
+      return;
+    }
     createPromise(1 + i, formdDelay + i * formsStep)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
