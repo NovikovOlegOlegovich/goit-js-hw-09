@@ -11,7 +11,7 @@ formEl.addEventListener('submit', event => {
   event.preventDefault;
 
   if (formAmount <= 0 || formdDelay < 0 || formsStep < 0) {
-    Notiflix.Notify.failure('Заповніть всі поля');
+    Notiflix.Notify.failure('Заповніть всі поля коректними даними');
     return;
   }
 
