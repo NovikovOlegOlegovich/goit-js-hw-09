@@ -10,11 +10,12 @@ formEl.addEventListener('submit', getFormData);
 formEl.addEventListener('submit', event => {
   event.preventDefault;
 
+  if (formAmount <= 0 || formdDelay < 0 || formsStep < 0) {
+    Notiflix.Notify.failure('Заповніть всі поля');
+    return;
+  }
+
   for (let i = 0; i < formAmount; i++) {
-    if (formAmount < 0 || formdDelay < 0 || formsStep < 0) {
-      Notiflix.Notify.failure('Заповніть всі поля');
-      return;
-    }
     createPromise(1 + i, formdDelay + i * formsStep)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
